@@ -2,7 +2,8 @@
   "expo": {
     "name": "pd-project",
     "slug": "pd-project",
-    "version": "1.0.0",
+    "version": "0.1.0",
+    "entryPoint": "./src/App",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
