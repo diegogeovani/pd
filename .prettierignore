@@ -1,1 +1,5 @@
 coverage
+.eslintrc.js
+.prettierrc.js
+app.json
+babel.config.js
