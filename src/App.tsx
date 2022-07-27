@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
 
+import { DailyWord, useDailyWord, DailyWordSingleton } from './features'
+
 function App() {
+  const dailyWord = useDailyWord(DailyWordSingleton.getInstance())
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Text>Hello, mobile world!</Text>
+      {dailyWord && <DailyWord dailyWord={dailyWord} />}
       <StatusBar style="auto" />
     </View>
   )
