@@ -1,17 +1,20 @@
 import { StyleSheet, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
 
-import { DailyWord, useDailyWord, DailyWordSingleton } from './features'
+import { DailyWord, DailyWordSingleton, useDailyWord } from './features'
 
 function App() {
   const dailyWord = useDailyWord(DailyWordSingleton.getInstance())
 
   return (
-    <View style={styles.container}>
-      {dailyWord && <DailyWord dailyWord={dailyWord} />}
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        {dailyWord && <DailyWord dailyWord={dailyWord} />}
+        <StatusBar style="auto" />
+      </View>
+    </NavigationContainer>
   )
 }
 
