@@ -1,30 +1,19 @@
-import { StyleSheet, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { registerRootComponent } from 'expo'
-import { StatusBar } from 'expo-status-bar'
 
-import { DailyWord, DailyWordSingleton, useDailyWord } from './features'
+import DailyWordScreen from './features/daily-word'
+
+const Stack = createNativeStackNavigator()
 
 function App() {
-  const dailyWord = useDailyWord(DailyWordSingleton.getInstance())
-
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        {dailyWord && <DailyWord dailyWord={dailyWord} />}
-        <StatusBar style="auto" />
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen name={DailyWordScreen.name} component={DailyWordScreen} options={{ headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
 
 export default registerRootComponent(App)
